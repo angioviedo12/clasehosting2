@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lengua y Literatura - Angie Elizabeth Oviedo Calero</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #a18cd1, #fbc2eb);
+      color: #333;
+    }
+    header {
+      background-color: #6a0572;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    nav {
+      background-color: #920b6f;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: white;
+      padding: 15px 25px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    nav a:hover {
+      background-color: #e91e63;
+    }
+    main {
+      padding: 30px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    section {
+      display: none;
+      animation: fade 0.5s ease-in-out;
+    }
+    section.active {
+      display: block;
+    }
+    h2 {
+      color: #6a0572;
+    }
+    iframe, img {
+      max-width: 100%;
+      margin-top: 20px;
+      border-radius: 8px;
+    }
+    footer {
+      background-color: #6a0572;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+    @keyframes fade {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Lengua y Literatura</h1>
+    <p>Por Angie Elizabeth Oviedo Calero</p>
+  </header>
+  <nav>
+    <a href="#" onclick="mostrar('inicio')">Inicio</a>
+    <a href="#" onclick="mostrar('autora')">Autora</a>
+    <a href="#" onclick="mostrar('lengua')">Lengua</a>
+    <a href="#" onclick="mostrar('literatura')">Literatura</a>
+    <a href="#" onclick="mostrar('multimedia')">Multimedia</a>
+  </nav>
+
+  <main>
+    <section id="inicio" class="active">
+      <h2>¿Qué es Lengua y Literatura?</h2>
+      <p>Es el estudio de los sistemas lingüísticos, las formas de comunicación y las expresiones literarias que han acompañado a la humanidad a lo largo de su historia. Comprender la lengua y explorar la literatura permite ampliar la visión del mundo y fortalecer la identidad cultural.</p>
+      <img src="https://cdn.pixabay.com/photo/2016/11/22/19/15/book-1853677_1280.jpg" alt="Libros y letras">
+    </section>
+
+    <section id="autora">
+      <h2>Sobre la Autora</h2>
+      <p>Angie Elizabeth Oviedo Calero es estudiante de la Universidad Técnica de Machala (UTMACH), dedicada a la exploración del lenguaje como herramienta para la educación, la cultura y el pensamiento crítico. Cree firmemente en el poder transformador de la lectura.</p>
+      <img src="https://cdn.pixabay.com/photo/2015/09/02/12/45/girl-918706_1280.jpg" alt="Autora leyendo">
+    </section>
+
+    <section id="lengua">
+      <h2>Lengua</h2>
+      <p>La lengua es un sistema de signos orales y escritos que permiten la comunicación. Estudiarla implica entender la gramática, la fonética, la semántica y el contexto sociocultural en el que se usa.</p>
+      <ul>
+        <li><strong>Funciones:</strong> referencial, emotiva, apelativa, metalingüística, fática y poética.</li>
+        <li><strong>Componentes:</strong> fonológico, morfológico, sintáctico, léxico y semántico.</li>
+      </ul>
+    </section>
+
+    <section id="literatura">
+      <h2>Literatura</h2>
+      <p>La literatura es el arte de la palabra. A través de sus géneros –narrativo, lírico y dramático– expresa emociones, ideas, conflictos y valores humanos. Estudiarla desarrolla la sensibilidad, la empatía y el pensamiento crítico.</p>
+      <img src="https://cdn.pixabay.com/photo/2015/10/31/12/54/book-1012276_1280.jpg" alt="Libro abierto y flor">
+    </section>
+
+    <section id="multimedia">
+      <h2>Videos Educativos</h2>
+      <p>Aprende más sobre Lengua y Literatura con estos recursos audiovisuales:</p>
+      <iframe src="https://www.youtube.com/embed/2VoTDLx43Dk" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/x7Br6aU3oFo" allowfullscreen></iframe>
+    </section>
+  </main>
+
+  <footer>
+    <p id="fechaHora"></p>
+  </footer>
+
+  <script>
+    function mostrar(id) {
+      document.querySelectorAll('main section').forEach(s => s.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+
+    function actualizarFechaHora() {
+      const ahora = new Date();
+      const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      const fecha = ahora.toLocaleDateString('es-ES', opciones);
+      const hora = ahora.toLocaleTimeString('es-ES');
+      document.getElementById('fechaHora').textContent = `Hoy es ${fecha}, hora actual: ${hora}`;
+    }
+
+    actualizarFechaHora();
+    setInterval(actualizarFechaHora, 1000);
+  </script>
+</body>
+</html>
